@@ -8,6 +8,8 @@ function closeTo(player, brick) {
   return false;
 }
 
+let startGame = false;
+
 function gameOver() {
   //player.img = loadImage("assets/player/explosion.png");
   game.gameSound.pause();
