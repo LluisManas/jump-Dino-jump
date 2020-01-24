@@ -19,7 +19,7 @@ class Background {
       });
     }
 
-    // imagen transicion this.image.push()
+    // imagen transicion sky to univers
     i -= canvasHeight;
     this.images.push({
       src: loadImage("assets/background/New Piskel-1.png (5).png"),
@@ -27,7 +27,6 @@ class Background {
       speed: 0.5
     });
     i -= canvasHeight;
-    //console.log(this.images);
 
     for (let j = 0; j > -canvasHeight * 2000; j -= canvasHeight) {
       this.images.push({

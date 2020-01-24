@@ -6,13 +6,30 @@ class Coins {
     this.y = 0;
     this.coinSpeed = 0.5;
     this.img = loadImage("assets/coins/tile000.png");
+    this.coinFrames = [
+      loadImage("assets/coins/tile000.png"),
+      loadImage("assets/coins/tile001.png"),
+      loadImage("assets/coins/tile002.png"),
+      loadImage("assets/coins/tile003.png"),
+      loadImage("assets/coins/tile004.png")
+    ];
+    this.counter = 0;
   }
 
   show() {
-    image(this.img, this.x, this.y, this.width, this.height);
+    image(
+      this.coinFrames[this.counter],
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 
   draw() {
     this.y += this.coinSpeed;
+    if (frameCount % 6 === 0) {
+      this.counter = (this.counter + 1) % this.coinFrames.length;
+    }
   }
 }

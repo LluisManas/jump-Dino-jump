@@ -11,7 +11,6 @@ class Birds {
 
   show() {
     fill(0);
-    //rect(this.x, this.y, this.width, this.height);
     image(this.img, this.x, this.y, this.width, this.height);
   }
 

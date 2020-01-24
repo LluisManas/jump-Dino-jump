@@ -11,7 +11,6 @@ function closeTo(player, brick) {
 let startGame = false;
 
 function gameOver() {
-  //player.img = loadImage("assets/player/explosion.png");
   game.gameSound.pause();
   textSize(54);
   fill(0);
@@ -19,7 +18,6 @@ function gameOver() {
   stroke(225);
   text(`GAME OVER`, width - width / 1.3, height - height / 2);
   //noLoop();
-  //player.this.height = -800;
   button.show();
   button.position(230, 420);
   button.style("font-size", "30px");
@@ -37,6 +35,7 @@ class Game {
     this.birds = [];
     this.points = 0;
     this.coins = [];
+    this.gameOver = false;
   }
 
   init() {
@@ -48,7 +47,6 @@ class Game {
     this.birds.push(new Birds());
     this.coins.push(new Coins());
     this.coinSound = loadSound("assets/coins/sound.mp3");
-    //this.gameSound.play();
     /* this.coins = [
       loadImage("assets/coins/tile000.png"),
       loadImage("assets/coins/tile001.png"),
@@ -78,15 +76,12 @@ class Game {
         this.bricks.push(new Brick());
       }
       this.levelBricks += 0.0005;
-
-      //console.log(this.bricks.speed, this.y);
     } else if (this.points >= 1000) {
       if (frameCount % 60 === 0) {
         this.bricks.push(new Brick());
       }
       this.levelBricks += 0.04;
     }
-    //console.log(this.points);
 
     for (var i = 0; i < this.bricks.length; i++) {
       this.bricks[i].show();
@@ -132,8 +127,12 @@ class Game {
         this.birds.img = this.birds.imgCrash;
         this.player.img = this.player.imgExplo;
         console.log("Game Over!");
-        gameOver();
+        this.gameOver = true;
       }
+    }
+
+    if (this.gameOver) {
+      gameOver();
     }
 
     if (frameCount % 420 === 0) {
@@ -154,11 +153,9 @@ class Game {
         this.player.y + this.player.height < this.coins[i].y
       ) {
       } else {
-        //return this.coins[i].x + this.coins[i].width = -100;
         this.coinSound.play();
         this.points += 25;
         this.coins.splice(i, 1);
-        console.log("POINTS!");
       }
     }
 
