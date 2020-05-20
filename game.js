@@ -11,7 +11,7 @@ function closeTo(player, brick) {
 let startGame = false;
 
 function gameOver() {
-  game.gameSound.pause();
+  //game.gameSound.pause();
   textSize(54);
   fill(0);
   strokeWeight(4);
@@ -41,12 +41,12 @@ class Game {
   init() {
     this.background = new Background();
     this.background.init();
-    this.gameSound = loadSound("assets/videogame2.mp3");
+    //this.gameSound = loadSound("assets/videogame2.mp3");
     this.player = new Player(100, 650, 50, 80);
     this.bricks.push(new Brick());
     this.birds.push(new Birds());
     this.coins.push(new Coins());
-    this.coinSound = loadSound("assets/coins/sound.mp3");
+    //this.coinSound = loadSound("assets/coins/sound.mp3");
     /* this.coins = [
       loadImage("assets/coins/tile000.png"),
       loadImage("assets/coins/tile001.png"),
@@ -153,7 +153,7 @@ class Game {
         this.player.y + this.player.height < this.coins[i].y
       ) {
       } else {
-        this.coinSound.play();
+        //this.coinSound.play();
         this.points += 25;
         this.coins.splice(i, 1);
       }

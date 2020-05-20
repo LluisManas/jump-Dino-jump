@@ -43,7 +43,7 @@ function draw() {
 function keyPressed() {
   if (startGame === false && keyCode == 32) {
     startGame = true;
-    game.gameSound.play();
+    //game.gameSound.play();
   }
   if (keyCode == 32) {
     game.player.jump();
